@@ -2,7 +2,7 @@
 @section('content')
 <div class="fh5co-hero">
 	<div class="fh5co-overlay"></div>
-	<?php $image=asset("storage/images/coverb.jpg");?>
+	<?php $image=asset("storage/images/coverb.JPG");?>
 	<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{$image}});">
 		<div class="desc animate-box">
 			<h2>Our <strong>Projects &amp; Activities Reports</strong></h2>
