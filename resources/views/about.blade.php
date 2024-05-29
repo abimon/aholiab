@@ -19,30 +19,6 @@
 			</div>
 		</div>
 
-		<div class="row row-bottom-padded-md">
-			<div class="col-md-12 text-center animate-box">
-				<p><img src="{{asset('storage/images/coverb.JPG')}}" alt="" class="img-responsive"></p>
-			</div>
-			<div class="col-md-6 text-center animate-box">
-				<p><img src="{{asset('storage/images/coverb.JPG')}}" alt="" class="img-responsive"></p>
-			</div>
-			<div class="col-md-6 text-center animate-box">
-				<p><img src="{{asset('storage/images/coverb.JPG')}}" alt="" class="img-responsive"></p>
-			</div>
-		</div>
-		<div class="row">
-			<?php $values = ['','','','']?>
-			@foreach($values as $value)
-			<div class="col-md-3">
-				<div class="feature-text">
-					<h3>Love</h3>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, mollitia! Temporibus, nemo. Doloremque sequi harum, dignissimos alias ea fugit magnam est accusamus, incidunt aspernatur quasi unde cupiditate aut atque architecto.</p>
-				</div>
-			</div>
-			@endforeach
-		</div>
-
-
 	</div>
 </div>
 

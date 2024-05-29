@@ -19,7 +19,7 @@
 					<ul class="contact-info">
 						<li><i class="icon-location-pin"></i> Juja</li>
 						<li><i class="icon-phone2"></i>+254 701 583 807</li>
-						<li><i class="icon-mail"></i>info@aholiabfoundation.com</li>
+						<li><i class="icon-mail"></i>info@aholiabfoundation.org</li>
 						<li><i class="icon-globe2"></i>www.aholiabfoundation.org</li>
 					</ul>
 				</div>

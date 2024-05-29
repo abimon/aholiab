@@ -102,7 +102,9 @@
 				</div>
 			</header>
 			<!-- end:header-top -->
+			<div class="" style="min-height: 80vh;">
 			@yield('content')
+			</div>
 			<!-- fh5co-blog-section -->
 			<footer>
 				<div id="footer">
