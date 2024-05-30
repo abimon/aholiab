@@ -41,7 +41,7 @@
               <a href="{{route('chat.show',$user->id)}}" style="text-decoration:none; color:black;" id="item">
                 <div class="row m-2 d-flex justify-content-between">
                   <div class=" mt-3" id="tr">
-                    <h6 class="">{{$sender->lname}} {{$user->fname}}</h6>
+                    <h6 class="">{{$user->lname}} {{$user->fname}}</h6>
                     @foreach($chats as $chat)
                     @if($chat['user_id'] == ($user->id))
                     <small class="fw-bold text-dark">{{$chat['message']}}</small>
