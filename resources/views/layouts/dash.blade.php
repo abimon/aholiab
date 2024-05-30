@@ -10,7 +10,8 @@
     <meta name="author" content="">
 
     <title>Aholiab Foundation | {{$title}}</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -36,24 +37,30 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
+            <li class="nav-item active">
+                <a class="nav-link" href="/">
+                    <i class="fa fa-home"></i>
+                    <span>Home</span></a>
+            </li>
+            <hr class="sidebar-divider">
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="/dashboard">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fa fa-tachometer"></i>
                     <span>Dashboard</span></a>
             </li>
             <hr class="sidebar-divider">
-            
+
             <!-- Engineers Heading -->
             <div class="sidebar-heading">
+                <i class="fa fa-bank"></i>
                 Donors & Sponsers
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fa fa-fw fa-cash"></i>
                     <span>Donors</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -68,7 +75,7 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="fa fa-fw fa-money"></i>
                     <span>Sponsors</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -86,22 +93,23 @@
 
             <!--Loan Client Heading -->
             <div class="sidebar-heading">
+                <i class="fa fa-gear fa-fw"></i>
                 Projects & Events
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Projects" aria-expanded="true" aria-controls="Projects">
-                    <i class="fas fa-fw fa-bank"></i>
-
+                    <i class="fa fa fa-fw"></i>
                     <span>Events</span>
                 </a>
                 <div id="Projects" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-gradient-light py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Manage Events</h6>
-                        <a class="collapse-item" href="">Create Event</a>
-                        <a class="collapse-item" href="">Update Event</a>
-                        <a class="collapse-item" href="">Event Status</a>
+                        
+                        <a class="collapse-item" href="{{route('event.index')}}">Our Event</a>
+                        <a class="collapse-item" href="#" data-toggle="modal" data-target="#eventModal">Create Event</a>
+                        <a class="collapse-item" href="{{route('event.create')}}">Event Report</a>
                     </div>
                 </div>
             </li>
@@ -109,13 +117,13 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMyProjects" aria-expanded="true" aria-controls="collapseMyProjects">
-                    <i class="fas fa-fw fa-credit-card"></i>
-                    <span>Projects</span>
+                    <i class="fa fa fa-fw"></i>
+                <span>Projects</span>
                 </a>
                 <div id="collapseMyProjects" class="collapse" aria-labelledby="headingMyProjects" data-parent="#accordionSidebar">
                     <div class="bg-gradient-light py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Manage My Projects</h6>
-                        <a class="collapse-item" href="">Create Project</a>
+                        <a class="collapse-item" href="#">Create Project</a>
                         <a class="collapse-item" href="">Update Project</a>
                         <a class="collapse-item" href="">Projects supports</a>
                     </div>
@@ -345,17 +353,213 @@
         </div>
     </div>
 
+    <!-- Event Modal -->
+    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create Event</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="{{route('event.store')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+                    <div class="m-3 card p-3 border-dark bg-transparent" style="border-style:dashed;">
+                    <label for="">Cover Photo</label>
+                                <img id="out" src="" style="width: 100%; object-fit:contain;" />
+                                <input type="file" accept="image/jpeg, image/png, image/webp" name="cover" id="cover" style="display: none;" class="form-control" onchange="loadCoverFile(event)">
+                                <div class="pt-2" id="desc">
+                                    <div class="text-center" style="font-size: xxx-large; font-weight:bolder;">
+                                        <i class="bi bi-upload"></i>
+                                    </div>
+                                    <div class="text-center">
+                                        <label for="cover" class="btn btn-success text-white" title="Upload new profile image">Browse</label>
+                                    </div>
+                                    <div class="text-center prim">*File supported .png .jpg .webp</div>
+                                </div>
+                                <script>
+                                    var loadCoverFile = function(event) {
+                                        var image = document.getElementById('out');
+                                        image.src = URL.createObjectURL(event.target.files[0]);
+                                        document.getElementById('cover').value == image.src;
+
+                                    };
+                                </script>
+                            </div>
+                        <div class="form-floating mb-2">
+                            <input type="text" name="title" placeholder="eg. VBS" id="" class="form-control">
+                            <label for="">Event Title</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="text" name="venue" placeholder="eg. Kaimulu SDA, Mwanza" id="" class="form-control">
+                            <label for="">Venue</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="date" name="from" id="" class="form-control">
+                            <label for="">Start Date</label>
+                        </div>
+                        <div class="form-floating mb-2">
+                            <input type="date" name="to" id="" class="form-control">
+                            <label for="">End Date</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-danger" style="text-decoration: none;overflow:hidden; text-wrap:nowrap" aria-expanded="false">
+                            <i class="bi bi-save"></i> Save
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('storage/dash/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('storage/dash/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{asset('storage/dash/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('storage/dash/js/sb-admin-2.min.js')}}"></script>
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.0/super-build/ckeditor.js"></script>
+    <script>
+        var i = 4;
+        for (j = 0; j < i; j++) {
+            CKEDITOR.ClassicEditor
+                .create(document.getElementById("editor" + j), {
+                    list: {
+                        properties: {
+                            styles: true,
+                            startIndex: true,
+                            reversed: true
+                        }
+                    },
+                    heading: {
+                        options: [{
+                                model: 'paragraph',
+                                title: 'Paragraph',
+                                class: 'ck-heading_paragraph'
+                            },
+                            {
+                                model: 'heading1',
+                                view: 'h1',
+                                title: 'Heading 1',
+                                class: 'ck-heading_heading1'
+                            },
+                            {
+                                model: 'heading2',
+                                view: 'h2',
+                                title: 'Heading 2',
+                                class: 'ck-heading_heading2'
+                            },
+                            {
+                                model: 'heading3',
+                                view: 'h3',
+                                title: 'Heading 3',
+                                class: 'ck-heading_heading3'
+                            },
+                            {
+                                model: 'heading4',
+                                view: 'h4',
+                                title: 'Heading 4',
+                                class: 'ck-heading_heading4'
+                            },
+                            {
+                                model: 'heading5',
+                                view: 'h5',
+                                title: 'Heading 5',
+                                class: 'ck-heading_heading5'
+                            },
+                            {
+                                model: 'heading6',
+                                view: 'h6',
+                                title: 'Heading 6',
+                                class: 'ck-heading_heading6'
+                            }
+                        ]
+                    },
 
+                    fontFamily: {
+                        options: [
+                            'default',
+                            'Arial, Helvetica, sans-serif',
+                            'Courier New, Courier, monospace',
+                            'Georgia, serif',
+                            'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                            'Tahoma, Geneva, sans-serif',
+                            'Times New Roman, Times, serif',
+                            'Trebuchet MS, Helvetica, sans-serif',
+                            'Verdana, Geneva, sans-serif'
+                        ],
+                        supportAllValues: true
+                    },
+                    fontSize: {
+                        options: [10, 12, 14, 'default', 18, 20, 22],
+                        supportAllValues: true
+                    },
+                    htmlSupport: {
+                        allow: [{
+                            name: /.*/,
+                            attributes: true,
+                            classes: true,
+                            styles: true
+                        }]
+                    },
+                    htmlEmbed: {
+                        showPreviews: true
+                    },
+                    link: {
+                        decorators: {
+                            addTargetToExternalLinks: true,
+                            defaultProtocol: 'https://',
+                            toggleDownloadable: {
+                                mode: 'manual',
+                                label: 'Downloadable',
+                                attributes: {
+                                    download: 'file'
+                                }
+                            }
+                        }
+                    },
+                    mention: {
+                        feeds: [{
+                            marker: '@',
+                            feed: [
+                                '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes', '@chocolate', '@cookie', '@cotton', '@cream',
+                                '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread', '@gummi', '@ice', '@jelly-o',
+                                '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding', '@sesame', '@snaps', '@soufflé',
+                                '@sugar', '@sweet', '@topping', '@wafer'
+                            ],
+                            minimumCharacters: 1
+                        }]
+                    },
+                    removePlugins: [
+                        'CKBox',
+                        'CKFinder',
+                        'EasyImage',
+                        'RealTimeCollaborativeComments',
+                        'RealTimeCollaborativeTrackChanges',
+                        'RealTimeCollaborativeRevisionHistory',
+                        'PresenceList',
+                        'Comments',
+                        'TrackChanges',
+                        'TrackChangesData',
+                        'RevisionHistory',
+                        'Pagination',
+                        'WProofreader',
+                    ]
+                }).then(editor => {
+                    editor.editing.view.change(writer => {
+                        writer.setStyle('min-height', '60vh', editor.editing.view.document.getRoot());
+                        writer.setStyle('background-color', 'transparent', editor.editing.view.document.getRoot());
+                    });
+                });
+        }
+    </script>
 </body>
 
 </html>

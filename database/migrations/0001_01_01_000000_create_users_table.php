@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('fname')->nullable();
             $table->string('mname')->nullable();
             $table->string('lname')->nullable();
-            $table->string('role')->default('Volunteer');
+            $table->string('role')->default('Guest');
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();

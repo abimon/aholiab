@@ -1,24 +1,15 @@
 @extends('layouts.app',['title'=>'Contact Us'])
 @section('content')
-<div class="fh5co-hero">
-	<div class="fh5co-overlay"></div>
-	<?php $image=asset("storage/images/coverb.jpg");?>
-	<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url({{$image}});">
-		<div class="desc animate-box">
-			<h2><strong>Contact</strong> Us</h2>
-		</div>
-	</div>
-
-</div>
+<h1 class="text-center fw-bold">Contact Us</h1>
 <div id="fh5co-contact" class="animate-box">
 	<div class="container">
 		<form action="#">
 			<div class="row">
 				<div class="col-md-6">
-					<h3 class="section-title">Our Address</h3>
+					<h3 class="section-title">Our Inquiries Address</h3>
 					<ul class="contact-info">
 						<li><i class="icon-location-pin"></i> Juja</li>
-						<li><i class="icon-phone2"></i>+254 701 583 807</li>
+						<li><i class="icon-phone2"></i>+254 701 701 861.</li>
 						<li><i class="icon-mail"></i>info@aholiabfoundation.org</li>
 						<li><i class="icon-globe2"></i>www.aholiabfoundation.org</li>
 					</ul>

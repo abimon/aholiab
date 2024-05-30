@@ -26,20 +26,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-				<h3>Leadership</h3>
+				<h3>Team</h3>
 			</div>
 		</div>
 	</div>
 	<div class="container">
 		<div class="row">
+			@foreach ($leaders as $leader)
 			<div class="col-md-4">
 				<div class="fh5co-team text-center animate-box">
 					<figure>
-						<img src="{{asset('storage/images/Ombati.jpg')}}" alt="user">
+						<img src="{{asset('storage/users/avatars/'.($leader->avatar))}}" alt="user">
 					</figure>
 					<div>
-						<h3>Edimon</h3>
-						<p><span>Founder</span></p>
+						<h3>{{$leader->fname}} {{$leader->lname}}</h3>
+						<p><span style="font-style:normal">{{$leader->role}}</span></p>
 					</div>
 					<p class="fh5co-social-icons">
 						<a href="#"><i class="bi bi-twitter"></i></a>
@@ -48,6 +49,7 @@
 					</p>
 				</div>
 			</div>
+			@endforeach
 		</div>
 	</div>
 </div>

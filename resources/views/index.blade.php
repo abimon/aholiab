@@ -37,7 +37,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4" >
+			<div class="col-md-4">
 				<div class="feature-left">
 					<span class="icon">
 						<i class="icon-wallet"></i>
@@ -57,30 +57,39 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 text-center heading-section">
-				<h3>Giving is Virtue.</h3>
-				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-					the blind texts.</p>
-			</div>
-		</div>
-
-		<div class="row row-bottom-padded-md">
-			<div class="col-md-12 text-center animate-box">
-				<p><img src="{{asset('storage/images/coverb.JPG')}}" alt="" class="img-responsive"></p>
-			</div>
-			<div class="col-md-6 text-center animate-box">
-				<p><img src="{{asset('storage/images/coverb.JPG')}}" alt="" class="img-responsive"></p>
-			</div>
-			<div class="col-md-6 text-center animate-box">
-				<p><img src="{{asset('storage/images/coverb.JPG')}}" alt="" class="img-responsive"></p>
+				<h3>Our Mission Statement</h3>
+				<p>Our mission is to engage with every child at their level of understanding to ensure a proper moral foundation in favor of God and humanity</p>
 			</div>
 		</div>
 		<div class="row">
-			<?php $values = ['','','','']?>
+			<div class="text-center">
+				<h3>Our Foundation Policies</h3>
+			</div>
+			<?php $values =
+				[
+					[
+						'title' => 'Progress',
+						'value' => 'Ensure Progressive development of Children',
+					],
+					[
+						'title' => 'Respect',
+						'value' => 'Treat every child with respect',
+					],
+					[
+						'title' => 'Protection',
+						'value' => 'Promoting for child rights',
+					],
+					[
+						'title' => 'Research',
+						'value' => 'Research and review Issues affecting children',
+					],
+				]
+			?>
 			@foreach($values as $value)
 			<div class="col-md-3">
 				<div class="feature-text">
-					<h3>Love</h3>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, mollitia! Temporibus, nemo. Doloremque sequi harum, dignissimos alias ea fugit magnam est accusamus, incidunt aspernatur quasi unde cupiditate aut atque architecto.</p>
+					<h3>{{$value['title']}}</h3>
+					<p>{{$value['value']}}</p>
 				</div>
 			</div>
 			@endforeach

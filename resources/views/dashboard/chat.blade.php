@@ -10,24 +10,48 @@
           <div class="">
             <!-- Search -->
             <div class=" layer w-100">
-              <input type="text" placeholder="Search contacts..." name="chatSearch" class="form-control p-2">
+              <input type="text" placeholder="Search contacts..." name="chatSearch" id="myInput" onkeyup="searchNames()" class="form-control p-2">
             </div>
             <!-- List -->
-            <div class="scrollable">
+            <script>
+              function searchNames() {
+                var input = document.getElementById("myInput");
+                var filter = input.value.toUpperCase();
+                var ul = document.getElementById("nameList");
+                var li = ul.getElementsByTagName("h6");
+                var item = ul.getElementsByTagName('address');
+
+                for (var i = 0; i < li.length; i++) {
+                  var name = li[i].innerText.toUpperCase();
+                  if (name.indexOf(filter) > -1) {
+                    // li[i].style.display = "";
+                    item[i].style.display = "";
+
+                  } else {
+                    // li[i].style.display = "none";
+                    item[i].style.display = "none";
+
+                  }
+                }
+              }
+            </script>
+            <div class="scrollable" id="nameList">
               @foreach($users as $k=>$user)
-              <a href="{{route('chat.show',$user->id)}}" style="text-decoration:none; color:black;">
-              <div class="row m-2 d-flex justify-content-between">
-                  <div class="col-5 mt-3">
-                    <h6 class="">{{$user->fname}}</h6>
+              <address>
+              <a href="{{route('chat.show',$user->id)}}" style="text-decoration:none; color:black;" id="item">
+                <div class="row m-2 d-flex justify-content-between">
+                  <div class=" mt-3" id="tr">
+                    <h6 class="">{{$sender->lname}} {{$user->fname}}</h6>
                     @foreach($chats as $chat)
                     @if($chat['user_id'] == ($user->id))
                     <small class="fw-bold text-dark">{{$chat['message']}}</small>
                     @endif
                     @endforeach
                   </div>
-              </div>
+                </div>
               </a>
               <hr>
+              </address>
               @endforeach
             </div>
           </div>
@@ -45,7 +69,7 @@
                 </div>
                 <div class="col-4">
                   @if($sender!=null)
-                  <h6 class="lh-1 mB-0">{{$sender->sname}} {{$sender->fname}}</h6>
+                  <h6 class="lh-1 mB-0">{{$sender->lname}} {{$sender->fname}}</h6>
                   @endif
                 </div>
 
@@ -63,7 +87,7 @@
               </div>
             </div>
             <hr>
-            <div style="min-height: 70vh; width:100%;">
+            <div style="min-height: 60vh; width:100%;">
               <!-- Chat Box -->
               <div class="p-2">
                 <!-- Chat Conversation -->

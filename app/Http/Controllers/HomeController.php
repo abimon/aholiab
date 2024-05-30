@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\User;
 use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
@@ -34,6 +34,7 @@ class HomeController extends Controller
         return view('contact');
     }
     public function about(){
-        return view('about');
+        $leaders= User::where('role','!=','Guest')->get();
+        return view('about',compact('leaders'));
     }
 }

@@ -96,6 +96,13 @@
 								<li class="{{request()->path()=='about'?'active':''}}"><a href="/about">About</a></li>
 								<li class="{{request()->path()=='reports'?'active':''}}"><a href="/reports">Field Reports</a></li>
 								<li class="{{request()->path()=='contact'?'active':''}}"><a href="/contact">Contact</a></li>
+								<li class="">
+									@guest
+									<a href="/login">Login</a>
+									@else
+									<a href="/dashboard">Dashboard</a>
+									@endguest
+								</li>
 							</ul>
 						</nav>
 					</div>
